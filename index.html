@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#091418"><title>Ниже света — оборона глубин</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230e2227'/%3E%3Cpath d='m6 12 14 9 14-9m-28 8 14 9 14-9' fill='none' stroke='%23edc377' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css"><script defer src="biomes.js"></script><script defer src="engine.js"></script><script defer src="game.js"></script>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="#field" aria-label="Ниже света, к полю боя"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="m10 17 14 9 14-9m-25 9 11 7 11-7M24 9v8"/></svg><span>НИЖЕ СВЕТА</span></a>
+  <nav aria-label="Разделы"><button data-menu="campaign">Экспедиция</button><button data-menu="lab">Лаборатория <b id="cores">0</b></button><button data-menu="guide">Справочник</button></nav>
+  <button class="sound" id="sound" aria-label="Включить звук" title="Звук">♪</button>
+</header>
+<main id="field">
+  <div class="heading"><div><div class="eyebrow"><i></i><span id="sector"></span></div><h1 id="zone">Базальтовый разлом</h1></div><div class="depth"><small>ГЛУБИНА</small><b id="depth"></b></div></div>
+  <section class="console" aria-label="Оборона лифта">
+    <div class="hud">
+      <div class="hud-wave"><span class="status-led"></span><span id="phase"></span><b id="wave"></b></div>
+      <div class="resources"><span title="Металл для строительства"><em class="metal-sign">▰</em><b id="metal"></b><small>МЕТАЛЛ</small></span><span title="Прочность грузового лифта"><em>⬡</em><b id="hull"></b><small>ЛИФТ</small></span></div>
+      <div class="time-controls"><button id="speed" title="Скорость симуляции">×1</button><button id="pause" title="Пауза (пробел)" aria-label="Пауза">Ⅱ</button></div>
+    </div>
+    <div class="board" id="board">
+      <canvas id="ocean" width="1600" height="900" aria-label="Карта обороны с руслом и грузовым лифтом"></canvas>
+      <div id="pads"></div>
+      <div id="paused" hidden>ПАУЗА</div>
+      <div id="notice" role="status" hidden></div>
+      <div class="map-sign" id="map-sign"></div>
+    </div>
+    <div class="deck">
+      <div class="armory"><div class="section-label">ОБОРОНА <span>/ ВЫБЕРИ ОРУДИЕ</span></div><div id="loadout"></div></div>
+      <div class="command"><div class="section-label">ГИДРОЛОКАТОР</div><div id="forecast"></div><div class="actions"><button class="primary" id="launch">Начать волну</button><button id="pulse" title="Акустический импульс (Q)">Импульс</button></div></div>
+    </div>
+  </section>
+  <section id="inspector" aria-label="Выбранное орудие"></section>
+  <footer><span id="save-info">Автосохранение между волнами</span><button data-menu="guide">Управление и правила ↗</button></footer>
+</main>
+<dialog id="dialog"><div class="dialog-head"><div><div class="eyebrow" id="modal-tag"></div><h2 id="modal-title"></h2></div><button id="close" aria-label="Закрыть">×</button></div><div id="modal-body"></div></dialog>
+</body>
+</html>
